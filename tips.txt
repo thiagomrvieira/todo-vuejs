@@ -1,0 +1,146 @@
+1- Criar o metodo data
+	tasks:[
+		{name: 'lavar lou�a', pending: false},
+		{name: 'fazer compras', pending: true},
+	]
+
+2- Criar o componente TaskGrid.vue
+	props: {
+		tasks:{	type: Array, required: true}
+	}
+
+	dentro de template
+		div.taskgrid
+			div v-for "tasks in tasks" :key="task.name"> {{task.name}}
+
+3- Import componente dentro de app
+	<taskGrid :tasks="tasks"
+		
+4- Criar componente task
+	div. task
+	p task.name
+
+5- Passar objetos recebidos no componente TaskGrid para o componente Task
+	props task - type object, required
+
+6 - computed:{
+	stateClass(){
+		return{
+			pending: this.task.pending,
+			done:   !this.task.pending
+		
+		}
+	}
+}
+
+
+7- Dentro da div task
+	:class="stateClass"
+
+8- Importar o componente task no componente taskGrid - Registrar
+	Substituir o o div pela tag do componente
+	Remove o mustache
+	:task="task"
+
+9- Em task.vue 
+	.task{
+		box-sizing: border-box
+		width: 350px
+		height: 150px
+		padding: 10px
+		border-radius: 8px
+		font-size: 2rem
+		font-weight: 300
+		cursor: pointer
+		user-select:none
+		display:flex
+		justify-content: center
+		align-items: center
+
+
+	.pending{
+		border-left: 12px solid #B73229
+		background-color: #F44336
+
+	.done{
+		color: #DDD
+		border-left: 12px solid #0A8F08
+		background-color: #4CAF50
+		text-decoration: line-through
+
+
+10- Em taskGrid
+	<template v-if="task.length"
+	fora do tepmplate <p class="no-task" v-else> Sua vida est� em dia!
+
+
+11-  .task-grid{
+       display: flex;
+       justify-content: center;
+       flex-wrap: wrap;
+    }
+    .task-grid .task{
+        margin: 10px;
+    }
+    .no-task{
+        color: #AAA;
+        font-size: 1.7rem;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
